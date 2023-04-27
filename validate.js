@@ -9,7 +9,7 @@ function checkNID() {
 
 function checkTicketNo() {
   let num = (document.getElementById("ticknum").value).trim();
-  if (isNaN(num)) {
+  if (isNaN(num) || num.length != 5 ) {
     return false;
   } else {
 	return true;
@@ -22,14 +22,14 @@ function validateForm(){
 	  document.getElementById("nid").focus();
 	  return false;
 	}else{
-		if(!checkTicketNo()){
-		  alert("Invalid value for No.of tickets!!");
-		  document.getElementById("ticknum").focus();
-		  return false;
-		}else{
-			total = priceCalculate();
-			alert("Total price for this booking is "+total+" USD");
-			return false;
+			if(!checkTicketNo()){
+		 	 alert("Invalid value for No.of tickets!!");
+		  	document.getElementById("ticknum").focus();
+		  	return false;
+			}else{
+				total = priceCalculate();
+				alert("Total price for this booking is "+total+" USD");
+				return false;
+			}
 		}
 	}
-}
